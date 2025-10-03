@@ -11,8 +11,7 @@ class User(Base):
     registered_at = Column(DateTime, default=datetime.utcnow)
     is_verified_author = Column(Boolean, default=False)
     avatar = Column(String, nullable=True)
-    
-    # Отношения ВНУТРИ класса
+
     news = relationship("News", back_populates="author")
     comments = relationship("Comment", back_populates="author")
 
@@ -25,7 +24,6 @@ class News(Base):
     author_id = Column(Integer, ForeignKey("users.id"))
     cover = Column(String, nullable=True)
     
-    # Отношения ВНУТРИ класса
     author = relationship("User", back_populates="news")
     comments = relationship("Comment", back_populates="news", cascade="all, delete")
 
@@ -37,6 +35,5 @@ class Comment(Base):
     author_id = Column(Integer, ForeignKey("users.id"))
     published_at = Column(DateTime, default=datetime.utcnow)
     
-    # Отношения ВНУТРИ класса
     news = relationship("News", back_populates="comments")
     author = relationship("User", back_populates="comments")
