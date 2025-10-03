@@ -130,7 +130,6 @@ class CRUDComment:
         return False
 
 
-# Создаем экземпляры для использования
 user = CRUDUser()
 news = CRUDNews()
 comment = CRUDComment()
