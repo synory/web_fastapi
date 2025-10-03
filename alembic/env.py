@@ -5,7 +5,6 @@ from alembic import context
 import os
 import sys
 
-# Добавляем путь к проекту в sys.path
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 from app.database import Base
